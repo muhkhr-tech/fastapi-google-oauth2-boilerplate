@@ -9,4 +9,4 @@ async def get_current_user(authorization: str = Header(...)):
         payload = verify_token(token)
         return payload
     except Exception as e:
-        raise AuthError(401, 'Invalid token!') from e
+        raise AuthError('Invalid token!') from e

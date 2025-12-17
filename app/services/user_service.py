@@ -55,7 +55,7 @@ class UserService:
         existing_user = await self.user_repo.get_by_email(email)
 
         if existing_user:
-            raise AuthError(401, f"User with email {email} already registered!")
+            raise AuthError(f"User with email {email} already registered!")
         
         hashed_password = await self.get_password_hash(password)
 
