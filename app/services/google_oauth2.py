@@ -2,9 +2,9 @@ from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
 from fastapi import Depends
 
-from app.core.exceptions import GoogleOAuthError
+from app.core.exceptions.service import GoogleOAuthError
 from app.core.config import settings
-from app.core.dependencies import get_redis
+from app.dependencies.redis import get_redis
 
 class GoogleOAuth2Service:
     def __init__(self, redis):

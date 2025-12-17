@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from app.core.config import settings
 from app.api.main import api_router
 from app.core.redis import redis_client
-from app.core.handlers import register_exception_handlers
+from app.api.handlers.exceptions import register_exception_handlers
 from app.core.database import engine
 from sqlalchemy import text
 

@@ -2,7 +2,7 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 import logging
 
-from app.core.exceptions import AppException
+from app.core.exceptions.base import AppException
 from app.core.response import error_response
 
 logger = logging.getLogger(__name__)

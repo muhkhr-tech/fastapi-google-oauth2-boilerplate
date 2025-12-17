@@ -2,8 +2,8 @@ from fastapi import Depends
 from pwdlib import PasswordHash
 
 from app.repositories.user_repo import get_user_repository, UserRepository
-from app.core.exceptions import AuthError
-from app.core.jwt_handler import create_access_token
+from app.core.exceptions.service import AuthError
+from app.core.security.jwt import create_access_token
 from app.utils.generate_random import secure_random_string
 
 password_hash = PasswordHash.recommended()
@@ -41,7 +41,7 @@ class UserService:
         if not await self.verify_password(password, user.get('password')):
             raise AuthError(400, 'Invalid email or password!')
         
-        access_token = await create_access_token({"email": user.get('email'), "name": user.get('name')})
+        access_token = create_access_token({"email": user.get('email'), "name": user.get('name')})
 
         return access_token
     

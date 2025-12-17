@@ -4,9 +4,7 @@ from fastapi import Depends
 import datetime
 
 from app.models.user import User
-from app.core.exceptions import AppException
 from app.core.database import get_db
-from app.core.dependencies import get_redis
 
 class UserRepository:
     def __init__(self, db: AsyncSession):
