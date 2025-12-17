@@ -36,10 +36,10 @@ class UserService:
         user = await self.user_repo.get_by_email(email)
 
         if not user:
-            raise AuthError(400, 'Invalid email or password!')
+            raise AuthError('Invalid email or password!')
         
         if not await self.verify_password(password, user.get('password')):
-            raise AuthError(400, 'Invalid email or password!')
+            raise AuthError('Invalid email or password!')
         
         access_token = create_access_token({"email": user.get('email'), "name": user.get('name')})
 

@@ -1,9 +1,7 @@
-from fastapi import APIRouter, Request, Depends, Body
-from fastapi.responses import RedirectResponse
+from fastapi import APIRouter, Depends, Body
 
-from app.services.google_oauth2 import get_google_oauth2_service
 from app.services.user_service import get_user_service, UserService
-from app.core.response import success_response
+from app.api.responses import success_response
 from app.schemas.auth_schema import LoginSchema, RegisterSchema
 
 router = APIRouter(tags=["AUTH"])

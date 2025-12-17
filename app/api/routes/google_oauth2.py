@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 
 from app.services.google_oauth2 import get_google_oauth2_service, GoogleOAuth2Service
 from app.services.user_service import get_user_service, UserService
-from app.core.response import success_response
+from app.api.responses import success_response
 router = APIRouter(tags=["Google OAuth2"])
 
 @router.get("/google-oauth2/login")
